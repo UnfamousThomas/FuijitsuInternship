@@ -27,7 +27,9 @@ public class DeliveryController {
      * @param city City name that we wish to find the parameter for
      * @param vehicle Vehicle we are checking fee for
      * @param timestamp Non-required parameter, if given, the nearest value fee is given
-     * @return Map so we can return it in json format, with "fee": price
+     * @return Map so we can return it in json format, with "fee": price or "error".
+     * If everything goes well would return something like this: {"fee":5.0}, if something goes wrong it would return something like:
+     * {"message": "Some error here"}
      */
     @GetMapping(path="/fee")
     public Map<String, Float> getDeliveryFee(@RequestParam String city, @RequestParam String vehicle, @RequestParam(required = false) LocalDateTime timestamp) {
